@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class AssessmentReview {
     public static int cubed(int number) {
@@ -14,13 +15,15 @@ public class AssessmentReview {
     }
 
     public static double median(int [] nums) {
-        double total = 0;
-        for (int num : nums) {
-            total += num;
+        Arrays.sort(nums);
+        double median;
+        if (nums.length % 2 == 0) {
+            median = ((double) nums[nums.length / 2] + (double) nums[nums.length / 2 - 1]) / 2;
+        } else {
+            median = nums[nums.length / 2];
         }
-        return total / nums.length;
+        return median;
     }
-
     public static ArrayList<Cat> uppercaseCatColor(ArrayList<Cat> cats) {
         for (Cat cat : cats) {
             cat.setColor(cat.getColor().toUpperCase());
